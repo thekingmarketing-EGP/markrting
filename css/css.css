@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+:root {
+    --bg-color: #0d0d0d;
+    --primary-gold: #FFD700;
+    --glow-gold: rgba(255, 215, 0, 0.5);
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* === شريط التنقل الزجاجي === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%; 
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    max-height: 90px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px var(--glow-gold));
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    display: block;
+    padding: 10px 0;
+}
+
+nav ul li a:hover {
+    color: var(--primary-gold);
+}
+
+/* === القائمة المنسدلة (Dropdown) === */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--primary-gold);
+    border-radius: 10px;
+    min-width: 220px;
+    list-style: none;
+    padding: 10px 0;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    transition: background 0.3s;
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--primary-gold);
+    padding-right: 25px;
+}
+
+nav ul li:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-item-with-arrow::after {
+    content: ' ▾';
+    font-size: 0.8rem;
+    vertical-align: middle;
+}
+
+/* === الواجهة الرئيسية (Hero Section) === */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 140px 5% 50px;
+    position: relative;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: var(--primary-gold);
+}
+
+.hero-content h2 {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    min-height: 80px;
+}
+
+.typing-text {
+    color: var(--primary-gold);
+}
+
+.cursor {
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 30px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.cta-btn {
+    background: transparent;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 0 15px transparent;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    background: var(--primary-gold);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--glow-gold);
+    transform: translateY(-5px);
+}
+
+.hero-graphics {
+    flex: 1.6;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.hero-video {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+    z-index: 2;
+    position: relative;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    background-color: #000;
+}
+
+video::-webkit-media-controls-panel {
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.5) 100%) !important;
+}
+
+.video-glow {
+    width: 110%;
+    height: 110%;
+    background: radial-gradient(circle, var(--glow-gold) 0%, transparent 65%);
+    position: absolute;
+    z-index: 1;
+    animation: pulse-glow 4s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.3; transform: scale(0.95); }
+    100% { opacity: 0.8; transform: scale(1.02); }
+}
+
+/* === التجاوب === */
+@media (max-width: 1200px) {
+    .hero {
+        gap: 30px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .hero-graphics {
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding-top: 160px;
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+    .hero-graphics {
+        margin-top: 30px;
+        width: 95%;
+        max-width: none;
+    }
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        display: none;
+    }
+    nav ul li:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+    .logo img { max-height: 70px; }
+    nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .hero { padding-top: 220px; }
+}
