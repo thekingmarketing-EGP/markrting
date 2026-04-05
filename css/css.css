@@ -19,25 +19,26 @@ body {
     overflow-x: hidden;
 }
 
-/* === الهيدر والتنقل === */
+/* === الهيدر (ثابت وشفاف) === */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%; 
-    background: rgba(13, 13, 13, 0.9);
+    background: rgba(13, 13, 13, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .logo img {
-    max-height: 80px;
+    max-height: 70px;
     filter: drop-shadow(0 0 5px var(--glow-gold));
 }
 
+/* === قائمة الكمبيوتر === */
 .nav-list {
     display: flex;
     gap: 25px;
@@ -49,6 +50,7 @@ header {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 700;
+    font-size: 1.1rem;
     transition: 0.3s;
 }
 
@@ -56,61 +58,37 @@ header {
     color: var(--primary-gold);
 }
 
-/* القائمة المنسدلة الذكية */
+/* القائمة المنسدلة (Dropdown) */
 .dropdown { position: relative; }
 .dropdown-menu {
     position: absolute;
     top: 100%;
     right: 0;
-    background: rgba(20, 20, 20, 0.98);
+    background: #111;
     border: 1px solid var(--primary-gold);
-    border-radius: 0 0 10px 10px;
-    min-width: 200px;
+    min-width: 180px;
     display: none;
+    list-style: none;
     padding: 10px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 5px;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    animation: slideUp 0.3s ease;
-}
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu li a { padding: 10px 20px; font-size: 0.9rem; }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* سهم الإرشاد */
-.nav-item-with-arrow::after {
-    content: ' ▾';
-    font-size: 0.8rem;
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.dropdown:hover .nav-item-with-arrow::after {
-    transform: rotate(180deg);
-}
-
-/* === زر الموبايل (Hamburger) مع الإرشاد === */
+/* === زر الموبايل (Hamburger) === */
 .menu-toggle {
     display: none;
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    z-index: 2100;
 }
 
 .menu-text {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--primary-gold);
     font-weight: bold;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
 }
 
 .bars-container { display: flex; flex-direction: column; gap: 5px; }
@@ -121,12 +99,13 @@ header {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 5% 50px;
+    padding: 140px 5% 50px;
     gap: 40px;
 }
 
-.hero-content { flex: 1; }
+.hero-content { flex: 1; z-index: 2; }
 .hero-graphics { flex: 1.5; position: relative; }
+
 .hero-video {
     width: 100%;
     border-radius: 20px;
@@ -134,34 +113,39 @@ header {
     box-shadow: 0 0 30px var(--glow-gold);
 }
 
-/* === التجاوب والموبايل === */
+/* === أهم جزء: التجاوب للموبايل === */
 @media (max-width: 992px) {
     .menu-toggle { display: flex; }
 
     .nav-list {
         position: fixed;
-        right: -100%;
         top: 0;
-        width: 280px;
+        right: -100%; /* مخفية تماماً برا الشاشة يمين */
+        width: 75%; /* تاخد جزء من الشاشة */
         height: 100vh;
-        background: #0d0d0d;
+        background: rgba(10, 10, 10, 0.98);
         flex-direction: column;
-        padding-top: 100px;
+        justify-content: center;
+        padding: 50px 0;
         transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border-left: 1px solid var(--primary-gold);
+        border-left: 2px solid var(--primary-gold);
     }
 
-    .nav-list.active { right: 0; }
+    /* لما تدوس تظهر */
+    .nav-list.active {
+        right: 0; 
+    }
+
+    .nav-list li { width: 100%; text-align: center; }
+    .nav-list li a { font-size: 1.4rem; display: block; padding: 15px; }
 
     .hero {
-        flex-direction: column-reverse; /* الفيديو يظهر أولاً */
+        flex-direction: column-reverse; /* الفيديو فوق */
         text-align: center;
+        padding-top: 120px;
     }
 
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-        background: transparent;
-        border: none;
-    }
+    /* قفل الـ Dropdown في الموبايل لسهولة الاستخدام */
+    .dropdown-menu { position: static; display: block; border: none; background: transparent; }
+    .dropdown-menu li a { font-size: 1.1rem; color: var(--text-muted); }
 }
