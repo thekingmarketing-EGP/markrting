@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % textArray.length; typeSpeed = 500; }
         setTimeout(typeEffect, typeSpeed);
     }
-    setTimeout(typeEffect, 1000);
+    if (typingTextElement) setTimeout(typeEffect, 1000);
 
     // 2. القائمة الجانبية للموبايل
     const mobileMenu = document.getElementById("mobile-menu");
@@ -104,4 +104,83 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // 6. تشغيل أنميشن الاحتفال (Confetti) في صفحة سابقة الأعمال فقط
+    if (document.querySelector('.portfolio-gallery')) {
+        createConfetti();
+        setTimeout(partyHorns, 1000); 
+    }
 });
+
+// --- دوال أنميشن الاحتفال ---
+function createConfetti() {
+    const colors = ['#ffd700', '#ffffff', '#ff4500', '#32cd32', '#1e90ff'];
+    const container = document.body;
+
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = (Math.random() * 8 + 5) + 'px'; 
+        confetti.style.height = (Math.random() * 15 + 8) + 'px'; 
+        
+        const fallDuration = Math.random() * 3 + 2; 
+        const fallDelay = Math.random() * 2; 
+        
+        confetti.style.animation = `confettiFall ${fallDuration}s linear ${fallDelay}s forwards`;
+
+        const keyframes = `
+            @keyframes confettiFall {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(${Math.random() * 720}deg); opacity: 0; }
+            }
+        `;
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = keyframes;
+        document.head.appendChild(styleSheet);
+
+        container.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, (fallDuration + fallDelay) * 1000);
+    }
+}
+
+function partyHorns() {
+    const leftHorn = document.createElement('div');
+    leftHorn.innerHTML = '🎉';
+    leftHorn.style = 'position:fixed; left: 20px; bottom: 20px; font-size: 3rem; z-index:10000; animation: hornBlastLeft 1s ease-out forwards; pointer-events: none;';
+    
+    const rightHorn = document.createElement('div');
+    rightHorn.innerHTML = '🎉';
+    rightHorn.style = 'position:fixed; right: 20px; bottom: 20px; font-size: 3rem; z-index:10000; animation: hornBlastRight 1s ease-out forwards; pointer-events: none;';
+
+    const keyframes = `
+        @keyframes hornBlastLeft {
+            0% { transform: scale(0) rotate(0); opacity: 1; }
+            50% { transform: scale(2) rotate(-30deg); opacity: 1; }
+            100% { transform: scale(1.5) rotate(-20deg) translateY(-100px); opacity: 0; }
+        }
+        @keyframes hornBlastRight {
+            0% { transform: scale(0) rotate(0); opacity: 1; }
+            50% { transform: scale(2) rotate(30deg); opacity: 1; }
+            100% { transform: scale(1.5) rotate(20deg) translateY(-100px); opacity: 0; }
+        }
+    `;
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = keyframes;
+    document.head.appendChild(styleSheet);
+
+    document.body.appendChild(leftHorn);
+    document.body.appendChild(rightHorn);
+
+    setTimeout(() => {
+        leftHorn.remove();
+        rightHorn.remove();
+    }, 1000);
+}
