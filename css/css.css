@@ -247,3 +247,123 @@ footer { background: #111; border-top: 1px solid var(--primary-gold); padding: 4
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
     transform: translateY(-8px) scale(1.03);
 }
+/* ========================================= */
+/* ==== أكواد قسم السوشيال ميديا الجديد (المنفصل) ==== */
+/* ========================================= */
+.social-projects-wrapper { padding: 20px 5% 60px; }
+.projects-grid-new { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 25px; 
+}
+
+.project-card-new { 
+    background: #111; border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; 
+    padding: 40px 20px; text-align: center; cursor: pointer !important; transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.project-card-new:hover { 
+    transform: translateY(-8px); border-color: var(--primary-gold); 
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3); background: #1a1a1a;
+}
+.folder-icon-new { font-size: 3.5rem; color: var(--primary-gold); margin-bottom: 15px; }
+.project-card-new h3 { color: #fff; font-size: 1.1rem; }
+
+/* === النافذة المنبثقة (Modal) === */
+.fb-modal-overlay { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0, 0, 0, 0.9); z-index: 5000; justify-content: center; align-items: center; 
+    padding: 20px; backdrop-filter: blur(8px);
+}
+.fb-modal-container { 
+    background: var(--bg-color); width: 100%; max-width: 800px; max-height: 90vh; 
+    border-radius: 15px; border: 1px solid var(--primary-gold); overflow-y: auto; 
+    position: relative; animation: modalFadeIn 0.4s ease;
+}
+.fb-modal-container::-webkit-scrollbar { width: 8px; }
+.fb-modal-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+
+@keyframes modalFadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+.fb-close-btn { 
+    position: absolute; top: 15px; right: 20px; font-size: 2rem; color: #fff; 
+    cursor: pointer !important; z-index: 10; background: rgba(0,0,0,0.6); 
+    width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; 
+    border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
+}
+.fb-close-btn:hover { color: var(--primary-gold); border-color: var(--primary-gold); transform: rotate(90deg); }
+
+/* === تصميم بروفايل الفيس بوك الداخلي === */
+.fb-profile-header { position: relative; width: 100%; }
+.fb-cover-photo { width: 100%; height: 250px; background: #222; }
+.fb-cover-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.fb-profile-logo { 
+    width: 130px; height: 130px; background: #fff; border: 5px solid var(--bg-color); 
+    border-radius: 50%; margin: -65px auto 0; position: relative; z-index: 5; 
+    display: flex; justify-content: center; align-items: center; overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+.fb-profile-logo img { width: 90%; height: 90%; object-fit: contain; }
+
+.fb-folder-tag { text-align: center; color: #fff; margin: 15px 0 30px; }
+.fb-folder-tag h2 { font-size: 1.8rem; color: var(--primary-gold); margin-bottom: 5px; }
+.fb-folder-tag p { color: var(--text-muted); font-size: 1rem; }
+
+/* === الصور بتعرض بحجمها الكامل === */
+.fb-work-section { padding: 0 20px 40px; }
+.fb-portfolio-gallery { 
+    display: flex; flex-direction: column; gap: 30px; /* الصور تحت بعض زي بوستات الفيس بوك */
+    align-items: center;
+}
+
+.fb-work-item { width: 100%; max-width: 600px; background: #111; border-radius: 15px; padding: 15px; border: 1px solid rgba(255,215,0,0.1); }
+.fb-work-item img { 
+    width: 100%; height: auto; /* ده اللي هيخلي الصورة كاملة مش مقصوصة */
+    border-radius: 10px; display: block; 
+}
+/* === ستايل اللوجو بتاع الكروت من بره === */
+.folder-logo-new { 
+    width: 100px; height: 100px; 
+    margin: 0 auto 15px; 
+    background: #fff; /* خلفية بيضا عشان لو اللوجو شفاف يظهر حلو */
+    border-radius: 50%; 
+    border: 3px solid var(--primary-gold); 
+    display: flex; justify-content: center; align-items: center; 
+    overflow: hidden; 
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    transition: 0.3s;
+}
+.folder-logo-new img { 
+    width: 80%; height: 80%; object-fit: contain; 
+}
+.project-card-new:hover .folder-logo-new {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+/* === زرار (اضغط للمشاهدة) داخل كروت المشاريع === */
+.click-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 6px 16px;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: 0.3s;
+}
+
+/* الأنميشن لما الماوس ييجي على الكارت كله الزرار لونه يتغير */
+.project-card-new:hover .click-hint {
+    background: var(--primary-gold);
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.click-hint i {
+    font-size: 0.9rem;
+}

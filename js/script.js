@@ -184,3 +184,50 @@ function partyHorns() {
         rightHorn.remove();
     }, 1000);
 }
+// === دوال قسم السوشيال ميديا الجديد (نافذة الفيس بوك) ===
+// === دوال قسم السوشيال ميديا الجديد (نافذة الفيس بوك الديناميكية) ===
+function openProjectModal(folderName, displayName) {
+    const modal = document.getElementById('fb-project-modal');
+    const titleElement = document.getElementById('modal-project-title');
+    
+    // استدعاء عناصر الصور من جوه النافذة المنبثقة
+    const coverImg = document.querySelector('.fb-cover-photo img');
+    const logoImg = document.querySelector('.fb-profile-logo img');
+    const post1 = document.querySelector('.fb-portfolio-gallery .fb-work-item:nth-child(1) img');
+    const post2 = document.querySelector('.fb-portfolio-gallery .fb-work-item:nth-child(2) img');
+    const post3 = document.querySelector('.fb-portfolio-gallery .fb-work-item:nth-child(3) img');
+    const post4 = document.querySelector('.fb-portfolio-gallery .fb-work-item:nth-child(4) img');
+
+    if (modal && titleElement) {
+        // تغيير الاسم
+        titleElement.textContent = displayName;
+        
+        // تغيير مسارات الصور أوتوماتيك بناءً على اسم الفولدر
+        coverImg.src = `../social media/${folderName}/caver1.jpg`;
+        logoImg.src = `../social media/${folderName}/logo1.png`;
+        post1.src = `../social media/${folderName}/d1.jpg`;
+        post2.src = `../social media/${folderName}/d2.jpg`;
+        post3.src = `../social media/${folderName}/d3.jpg`;
+        post4.src = `../social media/${folderName}/d4.jpg`;
+
+        // إظهار النافذة
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('fb-project-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+}
+
+// قفل النافذة عند الضغط خارجها
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('fb-project-modal');
+    if (event.target === modal) {
+        closeProjectModal();
+    }
+});
