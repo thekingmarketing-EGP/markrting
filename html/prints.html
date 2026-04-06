@@ -5,36 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المطبوعات | THE KING</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/css.css">
 </head>
 <body>
     <header>
         <div class="logo"><img src="../img/logo.png" alt="Logo"></div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="../index.html">الرئيسية</a></li>
-                <li class="dropdown">
-                    <a href="#" class="nav-item-with-arrow">خدماتنا</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="social_media.html">خدمات السوشيال ميديا</a></li>
-                        <li><a href="prints.html">المطبوعات</a></li>
-                    </ul>
-                </li>
-                <li><a href="previous_work.html">سابقة الأعمال</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-            </ul>
-        </nav>
+        <div class="menu-toggle" id="mobile-menu"><span class="menu-text">القائمة</span><div class="bars-container"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></div>
+        <nav><ul class="nav-list">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li class="dropdown"><a href="#" class="nav-item-with-arrow">خدماتنا <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+                <ul class="dropdown-menu"><li><a href="social_media.html">سوشيال ميديا</a></li><li><a href="prints.html">المطبوعات</a></li></ul>
+            </li>
+            <li><a href="previous_work.html">سابقة الأعمال</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul></nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>قسم <span>المطبوعات</span></h1>
-            <p>تصميمات إبداعية بجودة طباعة فائقة لكل ما يحتاجه مشروعك من بروشورات وكروت وغيرها.</p>
+    <nav class="mobile-nav-under-header">
+        <a href="../index.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+        <div class="nav-item services-trigger"><i class="fas fa-bullhorn" style="color:var(--primary-gold);"></i><span style="color:var(--primary-gold);">خدماتنا</span>
+            <div class="mobile-services-popup"><a href="social_media.html">سوشيال ميديا</a><a href="prints.html">مطبوعات</a></div>
         </div>
-    </section>
+        <a href="previous_work.html" class="nav-item"><i class="fas fa-briefcase"></i><span>أعمالنا</span></a>
+        <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content" style="text-align: center; width: 100%;">
+                <h1>قسم <span>المطبوعات</span></h1>
+                <p style="max-width: 600px; margin: 0 auto 30px;">تصميمات إبداعية بجودة طباعة فائقة لكل ما يحتاجه مشروعك من بروشورات وكروت وغيرها.</p>
+                <a href="https://wa.me/201017564052" target="_blank" class="cta-btn">يلا نجهز مطبوعاتك</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container"><div class="footer-box"><h3>عن THE KING</h3><p>رؤيتنا: أن نكون شريك النجاح الأول لعملائنا في بناء وتكبير علاماتهم التجارية رقمياً.</p></div><div class="footer-box"><h3>تواصل معنا</h3><div class="social-icons"><a href="https://www.facebook.com/profile.php?id=61563356482710" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/201017564052" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div></div>
+        <div class="footer-rights">جميع الحقوق محفوظة © <span>THE KING MARKETING</span></div>
+    </footer>
+    <div class="custom-cursor"></div><div class="custom-cursor-glow"></div>
     <script src="../js/script.js"></script>
 </body>
 </html>

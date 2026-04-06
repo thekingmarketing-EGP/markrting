@@ -5,37 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خدمات السوشيال ميديا | THE KING</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/css.css">
 </head>
 <body>
     <header>
         <div class="logo"><img src="../img/logo.png" alt="Logo"></div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="../index.html">الرئيسية</a></li>
-                <li class="dropdown">
-                    <a href="#" class="nav-item-with-arrow">خدماتنا</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="social_media.html">خدمات السوشيال ميديا</a></li>
-                        <li><a href="prints.html">المطبوعات</a></li>
-                    </ul>
-                </li>
-                <li><a href="previous_work.html">سابقة الأعمال</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-            </ul>
-        </nav>
+        <div class="menu-toggle" id="mobile-menu"><span class="menu-text">القائمة</span><div class="bars-container"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></div>
+        <nav><ul class="nav-list">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li class="dropdown"><a href="#" class="nav-item-with-arrow">خدماتنا <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+                <ul class="dropdown-menu"><li><a href="social_media.html">سوشيال ميديا</a></li><li><a href="prints.html">المطبوعات</a></li></ul>
+            </li>
+            <li><a href="previous_work.html">سابقة الأعمال</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul></nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>خدمات <span>السوشيال ميديا</span></h1>
-            <p>بنكبر صفحاتك وبنوصلك لجمهورك الحقيقي من خلال إدارة احترافية وحملات إعلانية ممولة.</p>
-            <a href="https://wa.me/201017564052" class="cta-btn">اطلب الخدمة الآن</a>
+    <nav class="mobile-nav-under-header">
+        <a href="../index.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+        <div class="nav-item services-trigger"><i class="fas fa-bullhorn" style="color:var(--primary-gold);"></i><span style="color:var(--primary-gold);">خدماتنا</span>
+            <div class="mobile-services-popup"><a href="social_media.html">سوشيال ميديا</a><a href="prints.html">مطبوعات</a></div>
+        </div>
+        <a href="previous_work.html" class="nav-item"><i class="fas fa-briefcase"></i><span>أعمالنا</span></a>
+        <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+    </nav>
+<main>
+    <section class="main-page-title">
+        <h1>خدمات <span>السوشيال ميديا</span></h1>
+        <p>نصنع المحتوى الذي يحرك المشاعر ويحقق الأرقام.</p>
+    </section>
+
+    <section class="profile-header">
+        <div class="cover-photo">
+            <img src="../social media/مسمط/caver1.jpg" alt="Cover">
+        </div>
+        <div class="profile-logo">
+            <img src="../social media/مسمط/logo1.png" alt="Logo">
         </div>
     </section>
+
+    <section class="work-section">
+        <div class="folder-tag">
+            <i class="fas fa-folder-open"></i> حافظة: <span>مسمط السيدة زينب</span>
+        </div>
+        <h2 class="section-title"><i class="fas fa-palette"></i> تصاميم الجرافيك</h2>
+        <div class="portfolio-gallery">
+            <div class="work-item"><img src="../social media/مسمط/d1.jpg" alt="1"></div>
+            <div class="work-item"><img src="../social media/مسمط/d2.jpg" alt="2"></div>
+            <div class="work-item"><img src="../social media/مسمط/d3.jpg" alt="3"></div>
+            <div class="work-item"><img src="../social media/مسمط/d4.jpg" alt="4"></div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-video"></i> فيديوهات الريلز</h2>
+        <div class="reels-grid">
+            <div class="reel-item"><video src="../social media/مسمط/r1.mp4" controls></video></div>
+            <div class="reel-item"><video src="../social media/مسمط/r2.mp4" controls></video></div>
+            <div class="reel-item"><video src="../social media/مسمط/r3.mp4" controls></video></div>
+        </div>
+    </section>
+
+    </main>>
+
+    <footer>
+        <div class="footer-container"><div class="footer-box"><h3>عن THE KING</h3><p>رؤيتنا: أن نكون شريك النجاح الأول لعملائنا في بناء وتكبير علاماتهم التجارية رقمياً.</p></div><div class="footer-box"><h3>تواصل معنا</h3><div class="social-icons"><a href="https://www.facebook.com/profile.php?id=61563356482710" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/201017564052" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div></div>
+        <div class="footer-rights">جميع الحقوق محفوظة © <span>THE KING MARKETING</span></div>
+    </footer>
+    <div class="custom-cursor"></div><div class="custom-cursor-glow"></div>
     <script src="../js/script.js"></script>
 </body>
 </html>
