@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/css.css">
+    <style>
+        /* تنسيقات كروت الخدمات المخصصة لصفحة السوشيال ميديا */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; padding: 20px 5% 60px; max-width: 1200px; margin: 0 auto; }
+        .service-card { background: #111; border: 1px solid rgba(255, 215, 0, 0.1); padding: 35px 25px; border-radius: 15px; text-align: center; transition: 0.4s ease; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary-gold); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15); background: #151515; }
+        .service-card i { font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+        .service-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.4rem; font-weight: 900; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    </style>
 </head>
 <body>
     <header>
@@ -14,11 +23,13 @@
         <div class="menu-toggle" id="mobile-menu"><span class="menu-text">القائمة</span><div class="bars-container"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></div>
         <nav><ul class="nav-list">
             <li><a href="../index.html">الرئيسية</a></li>
-            <li class="dropdown"><a href="#" class="nav-item-with-arrow">خدماتنا <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+            <li class="dropdown"><a href="#" class="nav-item-with-arrow" style="color: var(--primary-gold);">خدماتنا <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
                 <ul class="dropdown-menu"><li><a href="social_media.html">سوشيال ميديا</a></li><li><a href="prints.html">المطبوعات</a></li></ul>
             </li>
+            
             <li><a href="previous_work.html">سابقة الأعمال</a></li>
             <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="Packages.html">الباقات</a></li>
         </ul></nav>
     </header>
 
@@ -27,6 +38,7 @@
         <div class="nav-item services-trigger"><i class="fas fa-bullhorn" style="color:var(--primary-gold);"></i><span style="color:var(--primary-gold);">خدماتنا</span>
             <div class="mobile-services-popup"><a href="social_media.html">سوشيال ميديا</a><a href="prints.html">مطبوعات</a></div>
         </div>
+        <a href="Packages.html" class="nav-item"><i class="fas fa-tags"></i><span>الباقات</span></a>
         <a href="previous_work.html" class="nav-item"><i class="fas fa-briefcase"></i><span>شركاء النجاح</span></a>
         <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i><span>تواصل</span></a>
     </nav>
@@ -37,111 +49,62 @@
         <p>استراتيجيات متكاملة لبناء براند قوي وتحقيق انتشار واسع.</p>
     </section>
 
-   <section class="pricing-section" id="pricing">
-        <div class="pricing-container pricing-cycle-container">
-  <section class="main-page-title">
-        <h1>باقاتنا<span>في السوشيال ميديا</span></h1>
-        <p>اختار باقتك المناسبة وابدا الان 
-            مفيش باقة هنا معمولة بالصدفة.. كل تفصيلة متصممة عشان تكتسح منافسينك، تبني براند قوي، وتخليك "الملك" في مجالك. اختار سلاحك دلوقتي!
-        </p>
-    </section>
-            
-            <div class="pricing-card package-promax highlight-card" data-package="promax">
-                <div class="discount-badge promax-disc">خصم 50% <i class="fas fa-tag"></i></div>
-                <div class="package-badge best-seller">الاكثر مبيعاً <i class="fas fa-medal"></i></div>
-                <div class="package-icon-header"><i class="fas fa-shield-alt promax-icon"></i></div>
-                <div class="package-logo-wrapper logo-promax-inverted"><img src="../img/logo.png" alt="KING Logo"></div>
-                <h3 class="package-title">باقة PRO MAX</h3>
-                <p class="package-intro-text">أفضل خيار لك لخدمات السوشيال ميديا.</p>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> 14 بوست تصميم احترافي <div class="feature-desc">اكتساح يومي وتغطية كاملة لكل منتجاتك وخدماتك.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 19 محتوي احترافي <div class="feature-desc">خطة محتوى جبارة تتفوق بها على كل منافسيك.</div></li>
-                    <li><i class="fas fa-check-circle"></i> ردود تلقائيه علي الكومنتات والماسنجر <div class="feature-desc">نظام متكامل لتحويل المهتمين لعملاء فعليين.</div></li>
-                    <li><i class="fas fa-check-circle"></i> حملات واتس لـ 50,000 عميل <div class="feature-desc">حملات مكثفة تضمن وصول إعلاناتك لآلاف العملاء يومياً.</div></li>
-                    <li><i class="fas fa-check-circle"></i> جلسة تصوير احترافيه <div class="feature-desc">أعلى فئة من معدات التصوير لإخراج صور عالمية.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 5 فيديوهات احترافية <div class="feature-desc">محتوى فيروسي (Viral) يضمن لك تصدر التريند.</div></li>
-                    <li><i class="fas fa-check-circle"></i> عدد 2 فيديو AI <div class="feature-desc">توظيف أحدث تقنيات الذكاء الاصطناعي لإبهار عملائك.</div></li>
-                    <li><i class="fas fa-check-circle"></i> اعلان ممول بـ 4000 جنية <div class="feature-desc">سيطرة كاملة على السوق بإعلانات دقيقة الاستهداف.</div></li>
-                </ul>
-                <a href="https://wa.me/201017564052?text=أرغب+في+الاشتراك+في+باقة+PRO+MAX+مع+خصم+50%" target="_blank" class="btn btn-primary">اشترك الآن <i class="fab fa-whatsapp"></i></a>
+    <section class="all-services-section">
+        <h2 class="section-title">
+            <i class="fas fa-cogs"></i> خدماتنا الشاملة
+        </h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>الإعلانات الممولة (Media Buying)</h3>
+                <p>إدارة احترافية لحملات المبيعات وإعلانات دقيقة الاستهداف على كافة المنصات لضمان أعلى عائد على الاستثمار (ROI) واكتساح منافسينك.</p>
             </div>
 
-      <div class="pricing-card package-king" data-package="king">
-                <div class="discount-badge king-disc">خصم 50% <i class="fas fa-tag"></i></div>
-                <div class="package-icon-header"><i class="fas fa-crown king-icon"></i></div>
-                <div class="package-logo-wrapper logo-gold-full"><img src="../img/logo.png" alt="KING Logo"></div>
-                <h3 class="package-title">باقة KING</h3>
-                <p class="package-intro-text">أقوي الباقات لخدمات السوشيال ميديا.</p>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> 10 بوست تصميم احترافي <div class="feature-desc">هوية بصرية قوية وتصاميم تثبت في ذهن العميل.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 15 محتوي احترافي <div class="feature-desc">محتوى بيعي وقيمي يبني الثقة ويحقق مبيعات.</div></li>
-                    <li><i class="fas fa-check-circle"></i> ردود تلقائيه علي الكومنتات والماسنجر <div class="feature-desc">متابعة دقيقة وتقفيل مبيعات احترافي.</div></li>
-                    <li><i class="fas fa-check-circle"></i> حملات واتس لـ 20,000 عميل <div class="feature-desc">استهداف ضخم ومباشر لجمهورك عبر الواتساب.</div></li>
-                    <li><i class="fas fa-check-circle"></i> جلسة تصوير احترافيه <div class="feature-desc">تصوير يعكس فخامة وجودة ما تقدمه.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 4 فيديوهات احترافية <div class="feature-desc">سلسلة فيديوهات ترويجية تضمن لك الانتشار.</div></li>
-                    <li><i class="fas fa-check-circle"></i> عدد 1 فيديو AI <div class="feature-desc">فيديو مبتكر بالذكاء الاصطناعي لتقديم فكرتك بشكل مبهر ومواكب للتريند.</div></li>
-                    <li><i class="fas fa-check-circle"></i> اعلان ممول بـ 3000 جنية <div class="feature-desc">إدارة احترافية لحملات المبيعات لضمان أعلى عائد (ROI).</div></li>
-                </ul>
-                <a href="https://wa.me/201017564052?text=أرغب+في+الاشتراك+في+باقة+KING+مع+خصم+50%" target="_blank" class="btn btn-outline">اشترك الآن <i class="fab fa-whatsapp"></i></a>
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>تصميم الجرافيك (Graphic Design)</h3>
+                <p>تصاميم إبداعية وهوية بصرية قوية تثبت في ذهن العميل وتبرز قوة منتجك في السوق، من بوستات وستوريز وتصميمات متحركة GIF.</p>
             </div>
 
-             <div class="pricing-card package-boom" data-package="boom">
-                <div class="discount-badge boom-disc">خصم 50% <i class="fas fa-tag"></i></div>
-                <div class="package-icon-header"><i class="fas fa-bomb boom-icon"></i></div>
-                <div class="package-logo-wrapper logo-gold-muted"><img src="../img/logo.png" alt="KING Logo"></div>
-                <h3 class="package-title">باقة BOOM</h3>
-                <p class="package-intro-text">باقة متكاملة لخدمات السوشيال ميديا بسعر مميز جدا.</p>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> 8 بوست تصميم احترافي <div class="feature-desc">تصاميم إبداعية تبرز قوة منتجك في السوق.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 12 محتوي احترافي <div class="feature-desc">أفكار وكتابة محتوى متنوع يغطي أهدافك التسويقية.</div></li>
-                    <li><i class="fas fa-check-circle"></i> ردود تلقائية على الكومنتات والماسنجر <div class="feature-desc">إدارة تفاعل سريعة واحترافية للردود.</div></li>
-                    <li><i class="fas fa-check-circle"></i> حملات واتس لـ 5,000 عميل <div class="feature-desc">إرسال رسائل ترويجية لأرقام مستهدفة لزيادة المبيعات الفورية.</div></li>
-                    <li><i class="fas fa-check-circle"></i> جلسة تصوير احترافية <div class="feature-desc">يوم تصوير شامل بمعدات احترافية.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 3 فيديوهات احترافية <div class="feature-desc">محتوى فيديو عالي الجودة يخطف عين العميل.</div></li>
-                    <li><i class="fas fa-check-circle"></i> تصميم متحرك GIF <div class="feature-desc">تصميمات متحركة تفاعلية تكسر الملل وتزيد نسب النقر.</div></li>
-                    <li><i class="fas fa-check-circle"></i> إعلان ممول بـ 1000 جنيه <div class="feature-desc">حملة ممولة قوية للوصول لشريحة أكبر من العملاء.</div></li>
-                </ul>
-                <a href="https://wa.me/201017564052?text=أرغب+في+الاشتراك+في+باقة+BOOM+مع+خصم+50%" target="_blank" class="btn btn-outline">اشترك الآن <i class="fab fa-whatsapp"></i></a>
+            <div class="service-card">
+                <i class="fas fa-pen-nib"></i>
+                <h3>كتابة المحتوى (Copywriting)</h3>
+                <p>صياغة محتوى بيعي وقيمي بأسلوب احترافي يبني الثقة مع جمهورك، يحفز التفاعل، ويحول المتابعين إلى عملاء دائمين.</p>
             </div>
 
-            <div class="pricing-card package-start spotlight-card" data-package="start">
-                <div class="discount-badge start-disc">خصم 50% <i class="fas fa-tag"></i></div>
-                <div class="package-icon-header"><i class="fas fa-rocket start-icon"></i></div>
-                <div class="package-logo-wrapper logo-subtle"><img src="../img/logo.png" alt="KING Logo"></div>
-                <h3 class="package-title">باقة START</h3>
-                <p class="package-intro-text">باقة ممتازة لخدمات السوشيال ميديا بسعر تنافسي.</p>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> 8 بوست تصميم احترافي <div class="feature-desc">تصميمات عصرية جذابة تعكس هوية البراند وتلفت انتباه جمهورك.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 10 محتوي احترافي <div class="feature-desc">كتابة نصوص تسويقية (Copywriting) احترافية تحفز العميل على التفاعل.</div></li>
-                    <li><i class="fas fa-check-circle"></i> ردود تلقائيه علي الكومنتات والماسنجر <div class="feature-desc">برمجة بوت ذكي للرد الفوري لعدم تفويت أي مبيعات.</div></li>
-                    <li><i class="fas fa-check-circle"></i> جلسة تصوير احترافيه <div class="feature-desc">تصوير منتجاتك أو مكانك بأعلى جودة لإبراز التفاصيل.</div></li>
-                    <li><i class="fas fa-check-circle"></i> 2 فيديو احترافي <div class="feature-desc">صناعة فيديوهات (Reels) لزيادة الانتشار والوصول العضوي.</div></li>
-                    <li><i class="fas fa-check-circle"></i> اعلان ممول بـ 500 جنية <div class="feature-desc">إطلاق حملة ممولة كبداية لزيادة المبيعات والوصول المستهدف.</div></li>
-                </ul>
-                <a href="https://wa.me/201017564052?text=أرغب+في+الاشتراك+في+باقة+START+مع+خصم+50%" target="_blank" class="btn btn-outline">اشترك الآن <i class="fab fa-whatsapp"></i></a>
+            <div class="service-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>حملات الواتساب (WhatsApp)</h3>
+                <p>استهداف ضخم ومباشر من خلال حملات واتساب مكثفة (تصل لـ 50,000 عميل) تضمن وصول رسالتك وعروضك الترويجية وتحقيق مبيعات فورية.</p>
             </div>
 
-           
+            <div class="service-card">
+                <i class="fas fa-camera-retro"></i>
+                <h3>التصوير الاحترافي (Photography)</h3>
+                <p>جلسات تصوير لمنتجاتك ومقرك بأعلى فئة من معدات التصوير لإخراج صور احترافية تعكس فخامة وجودة ما تقدمه.</p>
+            </div>
 
-      
-        </div>
+            <div class="service-card">
+                <i class="fas fa-video"></i>
+                <h3>إنتاج الفيديوهات (Video Reels)</h3>
+                <p>صناعة فيديوهات احترافية ومحتوى فيروسي (Viral) يخطف العين ويضمن لعلامتك التجارية الانتشار العضوي السريع وتصدر التريند.</p>
+            </div>
 
-  
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <h3>إدارة الصفحات والرد الآلي</h3>
+                <p>إدارة متكاملة للتفاعل مع المتابعين، برمجة بوت ذكي (Chatbot) لردود تلقائية على الماسنجر والكومنتات لعدم تفويت أي فرصة بيع.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-microchip"></i>
+                <h3>فيديوهات الذكاء الاصطناعي (AI)</h3>
+                <p>توظيف أحدث تقنيات الذكاء الاصطناعي لإنشاء فيديوهات مبتكرة وأفكار خارج الصندوق لإبهار عملائك ومواكبة تطور السوق.</p>
+            </div>
         </div>
     </section>
-        </div>
 
-        <div class="discount-banner-container">
-            <div class="discount-banner">
-                <i class="fas fa-stopwatch-20 clock-icon"></i>
-                <span>بمناسبة الساعة <span class="highlight-time">9</span> م</span>
-                <span class="discount-label">خصم <span class="discount-percent">50%</span> لفترة محدودة</span>
-                <span>على كل الباقات!</span>
-                <i class="fas fa-tags tag-icon"></i>
-            </div>
-        </div>
-
-    </section>
      <section class="social-projects-wrapper">
         <div class="projects-grid-new">
             <div class="project-card-new" onclick="openProjectModal('مسمط', 'مسمط السيدة زينب')">
