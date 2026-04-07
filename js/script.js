@@ -231,3 +231,242 @@ window.addEventListener('click', function(event) {
         closeProjectModal();
     }
 });
+// === دوال قسم الباقات الجديد المتفاعل (تفتيح قائمة الشرح) ===
+// دالة لتفعيل الشرح عند الوقوف على السطر li
+const featureItems = document.querySelectorAll('.package-features li');
+
+featureItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.classList.add('show-desc');
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.classList.remove('show-desc');
+    });
+});
+
+// دالة لتطبيق الأنميشن الذي يركز الكاميرا Spotlight على الباقات بالأولويات المطلوبة
+// (PRO MAX: 40%, KING: 30%, BOOM: 20%, START: 10%)
+const packageCards = document.querySelectorAll('.pricing-card');
+
+// ترتيب الباقات المطلوب للأولوية
+const packagePriority = ['promax', 'king', 'boom', 'start'];
+
+function activateSpotlightCycle() {
+    packagePriority.forEach((packageName, index) => {
+        const card = document.querySelector(`.pricing-card[data-package="${packageName}"]`);
+        
+        // حساب التأخير بناءً على النسبة المطلوبة للأولوية
+        // (40/30/20/10) - سيتم تفعيل الباقة التالية بعد التأخير المحدد
+        let delay;
+        if (packageName === 'promax') delay = 0; // أول باقة تظهر (40%)
+        else if (packageName === 'king') delay = 4000; // تظهر بعد أول باقة (30%)
+        else if (packageName === 'boom') delay = 7000; // تظهر بعد ثاني باقة (20%)
+        else if (packageName === 'start') delay = 9000; // تظهر بعد ثالث باقة (10%)
+        
+        // تفعيل الأنميشن Spotlight بالكاميرا على الباقة بعد التأخير
+        setTimeout(() => {
+            // إزالة التأثير من كل الباقات الأخرى
+            packageCards.forEach(c => c.classList.remove('spotlight-active'));
+            // تطبيق التأثير على الباقة المطلوبة
+            if (card) {
+                card.classList.add('spotlight-active');
+            }
+        }, delay);
+        
+        // إزالة التأثير من آخر باقة بعد النسبة الـ 10%
+        if (index === packagePriority.length - 1) {
+            setTimeout(() => {
+                packageCards.forEach(c => c.classList.remove('spotlight-active'));
+            }, 10000); // 9000 (بدء آخر باقة) + 1000 (مدة الـ 10%) = 10000
+        }
+    });
+}
+
+// تفعيل الدورة Spotlight عند تحميل الصفحة مرة واحدة
+window.addEventListener('load', activateSpotlightCycle);
+
+// === دوال قسم البروشور التفاعلي (3D Flipbook) ===
+document.addEventListener("DOMContentLoaded", () => {
+    const pages = document.querySelectorAll('.flip-book .page');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const book = document.getElementById('interactive-book');
+    
+    let currentPage = 0; // رقم الورقة الحالية اللي ظاهرة
+
+    // دالة تقليب الورقة للأمام (تفتح الصفحة)
+    function flipNext() {
+        if (currentPage < pages.length - 1) {
+            pages[currentPage].classList.add('flipped');
+            currentPage++;
+        }
+    }
+
+    // دالة إرجاع الورقة للخلف (تقفل الصفحة)
+    function flipPrev() {
+        if (currentPage > 0) {
+            currentPage--;
+            pages[currentPage].classList.remove('flipped');
+        }
+    }
+
+    // تشغيل الأزرار
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', flipNext);
+        prevBtn.addEventListener('click', flipPrev);
+    }
+
+    // === نظام السحب باللمس (Touch & Swipe) للموبايل والكمبيوتر ===
+    let startX = 0;
+    let isDragging = false;
+
+    if (book) {
+        // للموبايل
+        book.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        book.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            let endX = e.changedTouches[0].clientX;
+            handleSwipe(startX, endX);
+            isDragging = false;
+        });
+        
+        // للكمبيوتر (سحب بالماوس)
+        book.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            book.style.cursor = 'grabbing';
+        });
+        
+        window.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            let endX = e.clientX;
+            handleSwipe(startX, endX);
+            isDragging = false;
+            book.style.cursor = 'grab';
+        });
+
+        // منطق حساب اتجاه السحب
+        function handleSwipe(start, end) {
+            let threshold = 50; // مسافة السحب المطلوبة عشان يقلب
+            // سحب لليمين (يعني بتمسك الورقة من الشمال وتسحبها يمين عشان تفتحها)
+            if (end - start > threshold) {
+                flipNext();
+            } 
+            // سحب لليسار (بترجع الورقة تاني)
+            else if (start - end > threshold) {
+                flipPrev();
+            }
+        }
+    }
+});
+
+// === دوال قسم الاستيكرات (Bottle Mockup) ===
+document.addEventListener("DOMContentLoaded", () => {
+    // ⚠️ استبدلنا الصورة بـ container
+    const stickerContainer = document.getElementById('sticker-container'); 
+    const stickerImg = document.getElementById('current-sticker');
+    const nextStickerBtn = document.getElementById('next-sticker');
+    const prevStickerBtn = document.getElementById('prev-sticker');
+    
+    if (stickerImg && stickerContainer && nextStickerBtn && prevStickerBtn) {
+        let currentStickerIndex = 1;
+        const totalStickers = 10;
+
+        function updateSticker(newIndex) {
+            // ⚠️ الأنميشن على الـ Container
+            stickerContainer.classList.add('fade-out');
+            
+            setTimeout(() => {
+                stickerImg.src = `../img/استكرات/${newIndex}.jpg`; 
+                currentStickerIndex = newIndex;
+                
+                stickerContainer.classList.remove('fade-out');
+            }, 300); 
+        }
+
+        nextStickerBtn.addEventListener('click', () => {
+            let nextIndex = currentStickerIndex < totalStickers ? currentStickerIndex + 1 : 1;
+            updateSticker(nextIndex);
+        });
+
+        prevStickerBtn.addEventListener('click', () => {
+            let prevIndex = currentStickerIndex > 1 ? currentStickerIndex - 1 : totalStickers;
+            updateSticker(prevIndex);
+        });
+    }
+});
+
+// === دوال قسم المنيو التفاعلي ===
+document.addEventListener("DOMContentLoaded", () => {
+    const menuPages = document.querySelectorAll('#menu-interactive-book .page');
+    const menuNextBtn = document.getElementById('menu-next-btn');
+    const menuPrevBtn = document.getElementById('menu-prev-btn');
+    const menuBook = document.getElementById('menu-interactive-book');
+    
+    if (menuBook && menuPages.length > 0) {
+        let currentMenuPage = 0;
+
+        function flipMenuNext() {
+            if (currentMenuPage < menuPages.length - 1) {
+                menuPages[currentMenuPage].classList.add('flipped');
+                currentMenuPage++;
+            }
+        }
+
+        function flipMenuPrev() {
+            if (currentMenuPage > 0) {
+                currentMenuPage--;
+                menuPages[currentMenuPage].classList.remove('flipped');
+            }
+        }
+
+        if (menuNextBtn && menuPrevBtn) {
+            menuNextBtn.addEventListener('click', flipMenuNext);
+            menuPrevBtn.addEventListener('click', flipMenuPrev);
+        }
+
+        // نظام السحب باللمس للمنيو (Touch & Swipe)
+        let startXMenu = 0;
+        let isDraggingMenu = false;
+
+        menuBook.addEventListener('touchstart', (e) => {
+            startXMenu = e.touches[0].clientX;
+            isDraggingMenu = true;
+        });
+
+        menuBook.addEventListener('touchend', (e) => {
+            if (!isDraggingMenu) return;
+            let endXMenu = e.changedTouches[0].clientX;
+            handleMenuSwipe(startXMenu, endXMenu);
+            isDraggingMenu = false;
+        });
+        
+        menuBook.addEventListener('mousedown', (e) => {
+            startXMenu = e.clientX;
+            isDraggingMenu = true;
+            menuBook.style.cursor = 'grabbing';
+        });
+        
+        window.addEventListener('mouseup', (e) => {
+            if (!isDraggingMenu) return;
+            let endXMenu = e.clientX;
+            handleMenuSwipe(startXMenu, endXMenu);
+            isDraggingMenu = false;
+            menuBook.style.cursor = 'grab';
+        });
+
+        function handleMenuSwipe(start, end) {
+            let threshold = 50;
+            if (end - start > threshold) {
+                flipMenuNext();
+            } else if (start - end > threshold) {
+                flipMenuPrev();
+            }
+        }
+    }
+});

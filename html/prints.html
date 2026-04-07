@@ -32,13 +32,151 @@
     </nav>
 
     <main>
-        <section class="hero">
+        <section class="hero" style="min-height: auto; padding-top: 160px; padding-bottom: 30px;">
             <div class="hero-content" style="text-align: center; width: 100%;">
                 <h1>قسم <span>المطبوعات</span></h1>
                 <p style="max-width: 600px; margin: 0 auto 30px;">تصميمات إبداعية بجودة طباعة فائقة لكل ما يحتاجه مشروعك من بروشورات وكروت وغيرها.</p>
                 <a href="https://wa.me/201017564052" target="_blank" class="cta-btn">يلا نجهز مطبوعاتك</a>
             </div>
         </section>
+
+        <section class="flipbook-section" style="padding-top: 10px;">
+            
+            <h2 class="section-title" style="margin-bottom: 40px; font-size: 2rem;">
+                خد جولة في مطبوعاتنا <i class="fas fa-book-open" style="color: var(--primary-gold);"></i>
+            </h2>
+            
+            <div class="flip-book-container">
+                <div class="flip-book" id="interactive-book">
+                    <div class="page" style="z-index: 11;"><img src="../img/برشور/1.jpg" alt="1"></div>
+                    <div class="page" style="z-index: 10;"><img src="../img/برشور/2.jpg" alt="2"></div>
+                    <div class="page" style="z-index: 9;"><img src="../img/برشور/3.jpg" alt="3"></div>
+                    <div class="page" style="z-index: 8;"><img src="../img/برشور/4.jpg" alt="4"></div>
+                    <div class="page" style="z-index: 7;"><img src="../img/برشور/5.jpg" alt="5"></div>
+                    <div class="page" style="z-index: 6;"><img src="../img/برشور/6.jpg" alt="6"></div>
+                    <div class="page" style="z-index: 5;"><img src="../img/برشور/7.jpg" alt="7"></div>
+                    <div class="page" style="z-index: 4;"><img src="../img/برشور/8.jpg" alt="8"></div>
+                    <div class="page" style="z-index: 3;"><img src="../img/برشور/9.jpg" alt="9"></div>
+                    <div class="page" style="z-index: 2;"><img src="../img/برشور/10.jpg" alt="10"></div>
+                    <div class="page" style="z-index: 1;"><img src="../img/برشور/11.jpg" alt="11"></div>
+                </div>
+                
+                <div class="book-controls">
+                    <button id="next-btn" class="ctrl-btn"><i class="fas fa-arrow-right"></i> التالي</button>
+                    <button id="prev-btn" class="ctrl-btn">السابق <i class="fas fa-arrow-left"></i></button>
+                </div>
+                <p class="swipe-hint"><i class="fas fa-hand-pointer"></i> اسحب بإصبعك يميناً ويساراً لتقليب الورق</p>
+            </div>
+        </section>
+
+<section class="stickers-section">
+            
+            <h2 class="section-title" style="margin-bottom: 40px; font-size: 2rem; text-align: center; width: 100%;">
+                شوف استيكراتنا على أرض الواقع <i class="fas fa-tags" style="color: var(--primary-gold);"></i>
+            </h2>
+
+            <div class="mockup-container">
+                <div class="bottle-wrapper">
+                    <img src="../img/استكرات/زجاجة.png" alt="زجاجة" class="bottle-base">
+                    
+                    <div class="sticker-mask" id="sticker-container">
+                        <img src="../img/استكرات/1.jpg" alt="استيكر" class="sticker-overlay" id="current-sticker">
+                    </div>
+                </div>
+                
+                <div class="book-controls" style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+                    <button id="next-sticker" class="ctrl-btn"><i class="fas fa-arrow-right"></i> التالي</button>
+                    <button id="prev-sticker" class="ctrl-btn">السابق <i class="fas fa-arrow-left"></i></button>
+                </div>
+                <p class="swipe-hint" style="text-align: center; width: 100%;"><i class="fas fa-magic"></i> قلب وشوف تصميمات مختلفة للاستيكر</p>
+            </div>
+        </section>
+
+<section class="flipbook-section" style="background-color: #0d0d0d; border-top: 1px solid rgba(255, 215, 0, 0.1);">
+            
+            <h2 class="section-title" style="margin-bottom: 40px; font-size: 2rem; text-align: center; width: 100%;">
+                تصفح تصميمات المنيو <i class="fas fa-utensils" style="color: var(--primary-gold);"></i>
+            </h2>
+            
+            <div class="flip-book-container">
+                <div class="flip-book" id="menu-interactive-book">
+                    <div class="page" style="z-index: 5;"><img src="../img/منيو/5.jpg" alt="منيو 5"></div>
+                    <div class="page" style="z-index: 4;"><img src="../img/منيو/1.jpg" alt="منيو 1"></div>
+                    <div class="page" style="z-index: 3;"><img src="../img/منيو/2.jpg" alt="منيو 2"></div>
+                    <div class="page" style="z-index: 2;"><img src="../img/منيو/3.jpg" alt="منيو 3"></div>
+                    <div class="page" style="z-index: 1;"><img src="../img/منيو/4.jpg" alt="منيو 4"></div>
+                </div>
+                
+                <div class="book-controls">
+                    <button id="menu-next-btn" class="ctrl-btn"><i class="fas fa-arrow-right"></i> التالي</button>
+                    <button id="menu-prev-btn" class="ctrl-btn">السابق <i class="fas fa-arrow-left"></i></button>
+                </div>
+                <p class="swipe-hint"><i class="fas fa-hand-pointer"></i> اسحب بإصبعك يميناً ويساراً لتقليب المنيو</p>
+            </div>
+        </section>
+
+        <section class="flyers-section">
+            <h2 class="section-title">
+                تصميم وطباعة الفلاير <i class="fas fa-paper-plane"></i>
+            </h2>
+            <div class="flyers-grid">
+                <div class="flyer-item">
+                    <img src="../img/فلاير/1.jpg" alt="فلاير 1">
+                </div>
+                <div class="flyer-item">
+                    <img src="../img/فلاير/2.jpg" alt="فلاير 2">
+                </div>
+            </div>
+        </section>
+
+        <section class="general-prints-section">
+            <h2 class="section-title">
+                خدماتنا الطباعية الأخرى <i class="fas fa-print"></i>
+            </h2>
+            
+            <div class="prints-display-grid">
+                <div class="print-card">
+                    <div class="print-img-box">
+                        <img src="../img/card.jpg" alt="كروت شخصية">
+                    </div>
+                    <div class="print-info">
+                        <h3>كروت شخصية (Business Cards)</h3>
+                        <p>كروت بتصميمات فريدة تعبر عن هويتك وتترك انطباعاً لا ينسى عند عملائك، مع خيارات متعددة للخامات واللمسات الفنية.</p>
+                    </div>
+                </div>
+
+                <div class="print-card">
+                    <div class="print-img-box">
+                        <img src="../img/اعلام كبير.jpg" alt="أعلام كبيرة">
+                    </div>
+                    <div class="print-info">
+                        <h3>أعلام دعائية كبيرة</h3>
+                        <p>اجذب الأنظار لمقرك أو فعاليتك بأعلام ذات جودة طباعة عالية وألوان زاهية تقاوم العوامل الجوية وتدوم طويلاً.</p>
+                    </div>
+                </div>
+
+                <div class="print-card">
+                    <div class="print-img-box">
+                        <img src="../img/بنرات.jpg" alt="بنرات إعلانية">
+                    </div>
+                    <div class="print-info">
+                        <h3>بنرات إعلانية</h3>
+                        <p>حلول إعلانية ضخمة للمحلات والمعارض، طباعة بدقة متناهية تبرز أدق تفاصيل تصميمك على أفضل خامات الفليكس والبانر.</p>
+                    </div>
+                </div>
+
+                <div class="print-card">
+                    <div class="print-img-box">
+                        <img src="../img/علم المكتب.jpg" alt="أعلام مكتبية">
+                    </div>
+                    <div class="print-info">
+                        <h3>أعلام مكتبية</h3>
+                        <p>لمسة من الاحترافية على مكتبك أو في قاعة الاجتماعات، أعلام مكتبية أنيقة تعزز حضور علامتك التجارية في أدق التفاصيل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
